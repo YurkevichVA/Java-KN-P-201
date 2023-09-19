@@ -1,6 +1,12 @@
 package step.learning.basics;
 
 import java.io.File;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.nio.file.attribute.FileTime;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class FilesDemo {
     public void run() {
@@ -16,8 +22,12 @@ public class FilesDemo {
 
             System.out.printf("Path is %s %n", dir.isDirectory() ? "directory" : "file");
 
-            for(String filename: dir.list()) {
-                System.out.println(filename);
+            for(File file: dir.listFiles()) {
+                Date yourDate = new Date(file.lastModified());
+                DateFormat formatter =  new SimpleDateFormat("dd-MM-yyyy hh-MM-ss");
+                String formattedDate = formatter.format(yourDate);
+                System.out.printf("%s\t\t%s\t\t%s\t\t%s", file.isDirectory() ? "d----" : "-f---", formattedDate, file.length(), file.getName());
+                System.out.println();
             }
         }
         else {
