@@ -3,6 +3,7 @@ package step.learning;
 import step.learning.basics.BasicsDemo;
 import step.learning.basics.FilesDemo;
 import step.learning.basics.LongestStringTask;
+import step.learning.oop.OopDemo;
 
 public class App
 {
@@ -10,7 +11,8 @@ public class App
     {
         //new BasicsDemo().run();
         //new FilesDemo().run();
-        new LongestStringTask().run();
+        //new LongestStringTask().run();
+        new OopDemo().run();
     }
 }
 
