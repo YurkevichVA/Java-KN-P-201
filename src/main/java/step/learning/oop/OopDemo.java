@@ -2,16 +2,49 @@ package step.learning.oop;
 
 public class OopDemo {
     public void run() {
-        Book book = new Book("D. Knuth", "Art of programming");
-        Book book2 = new Book("Іван Багряний", "Тигролови");
-        Book book3 = new Book("Frank Herbert", "Dune");
-        //System.out.println(book.getCard());
-
         Library library = new Library();
-        library.add(book);
-        library.add(book2);
-        library.add(book3);
+
+        try {
+            library.add(new Book("D. Knuth", "Art of programming"));
+            library.add(new Book("Іван Багряний", "Тигролови"));
+            library.add(new Book("Frank Herbert", "Dune"));
+
+            library.add(new Newspaper("Daily Mail", "2023-09-25",7));
+            library.add(new Newspaper("Washington Post", "2022-09-25", 3));
+
+            library.add(new Journal("Scince Journal", 163, 5));
+            library.add(new Journal("Amogus Spawning", 123, 3));
+
+            library.add(new Hologram("Horizontal symmetric text"));
+        }
+        catch (Exception e) {
+            System.err.println("Literature creation error: " + e.getMessage());
+        }
+
         library.printAllCards();
+
+        System.out.println("---------------- COPYABLE --------------");
+        library.printCopyable();
+        System.out.println("-------------- NON COPYABLE --------------");
+        library.printNonCopyable();
+
+        System.out.println("---------------- PERIODIC --------------");
+        library.printPeriodic();
+        System.out.println("-------------- NON PERIODIC --------------");
+        library.printNonPeriodic();
+
+        System.out.println("---------------- PERIODIC 2 --------------");
+        library.printPeriodicDuck();
+
+        System.out.println("---------------- PRINTABLE --------------");
+        library.printPrintable();
+        System.out.println("-------------- NON PRINTABLE --------------");
+        library.printNonPrintable();
+
+        System.out.println("---------------- MULTIPLE --------------");
+        library.printMultiple();
+        System.out.println("----------------- SINGLE --------------");
+        library.printSingle();
     }
 }
 /*
