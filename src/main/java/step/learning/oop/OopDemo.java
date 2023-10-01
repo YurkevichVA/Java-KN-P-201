@@ -43,9 +43,10 @@ public class OopDemo {
                 throw new RuntimeException(e);
             }
         }
+        assert literature != null;
         System.out.println(literature.getCard());
     }
-    public void run1() {
+    public void run2() {
         // JSON - засобами Gson
         Gson gson = new Gson();
         String str = "{\"author\": \"D. Knuth\", \"title\": \"Art of programming\"}";
@@ -72,7 +73,7 @@ public class OopDemo {
         }
         catch (IOException e) { System.err.println(e.getMessage()); }
     }
-    public void run2() {
+    public void run1() {
         Library library = new Library();
 
         try {
@@ -86,7 +87,7 @@ public class OopDemo {
             library.add(new Journal("Scince Journal", 163, 5));
             library.add(new Journal("Amogus Spawning", 123, 3));
 
-            library.add(new Hologram("Horizontal symmetric text"));
+            library.add(new Hologram("Horizontal symmetric text", "B. Двовимірна голограма"));
 
             library.save();
         }
@@ -120,11 +121,13 @@ public class OopDemo {
         library.printSingle();
     }
 }
+
 /*
 Ресурси проєкту - папка "resources" (src/main/resources), файли з якої за замовчанням копіюються у збірку (target/classes).
 Це гарантує наявність ресурсів у підсумковому (зібраному) проєкті.
 getClassLoader(), викликаний на довільному типі з нашого проєкту дозволить визначити розміщення папки класів, а відтак і ресурсів.
  */
+
 /*
 Бібліотека
 Моделюємо книгосховище (бібліотеку) у якому є каталог (перелік наявних видань)

@@ -4,6 +4,7 @@ import com.google.gson.JsonObject;
 
 import java.text.ParseException;
 
+@Serializable
 public class Book extends Literature implements Copyable, Printable{
     private String author;
 
@@ -29,6 +30,7 @@ public class Book extends Literature implements Copyable, Printable{
         );
     }
 
+    @FromJsonParser
     public static Book fromJson(JsonObject jsonObject) throws ParseException {
         String[] requiredField = {"title", "author"};
         for(String field: requiredField) {
@@ -37,6 +39,7 @@ public class Book extends Literature implements Copyable, Printable{
         return new Book(jsonObject.get(requiredField[1]).getAsString(), jsonObject.get(requiredField[0]).getAsString() );
     }
 
+    @ParseChecker
     public static boolean isParsebleFromJson(JsonObject jsonObject) {
         String[] requiredFields = {"author", "title"};
         for(String field: requiredFields) {

@@ -6,6 +6,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+@Serializable
 public class Journal extends Literature implements Copyable, Periodic, Printable, Multiple{
     private int number;
     private int count;
@@ -47,6 +48,7 @@ public class Journal extends Literature implements Copyable, Periodic, Printable
         this.count = count;
     }
 
+    @FromJsonParser
     public static Journal fromJson(JsonObject jsonObject) throws ParseException {
         String[] requiredFields = {"title", "number", "count"};
         for(String field: requiredFields) {
@@ -54,6 +56,7 @@ public class Journal extends Literature implements Copyable, Periodic, Printable
         }
         return new Journal(jsonObject.get(requiredFields[0]).getAsString(), jsonObject.get(requiredFields[1]).getAsInt(), jsonObject.get(requiredFields[2]).getAsInt() );
     }
+    @ParseChecker
     public static boolean isParsebleFromJson(JsonObject jsonObject) {
         String[] requiredFields = {"title", "number", "count"};
         for(String field: requiredFields) {
