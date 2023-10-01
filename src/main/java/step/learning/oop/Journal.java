@@ -1,5 +1,7 @@
 package step.learning.oop;
 
+import com.google.gson.JsonObject;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -43,5 +45,22 @@ public class Journal extends Literature implements Copyable, Periodic, Printable
 
     public void setCount(int count) {
         this.count = count;
+    }
+
+    public static Journal fromJson(JsonObject jsonObject) throws ParseException {
+        String[] requiredFields = {"title", "number", "count"};
+        for(String field: requiredFields) {
+            if(!jsonObject.has(field)) throw new ParseException("Missing required field: " + field, 0);
+        }
+        return new Journal(jsonObject.get(requiredFields[0]).getAsString(), jsonObject.get(requiredFields[1]).getAsInt(), jsonObject.get(requiredFields[2]).getAsInt() );
+    }
+    public static boolean isParsebleFromJson(JsonObject jsonObject) {
+        String[] requiredFields = {"title", "number", "count"};
+        for(String field: requiredFields) {
+            if(!jsonObject.has(field)) {
+                return false;
+            }
+        }
+        return true;
     }
 }
