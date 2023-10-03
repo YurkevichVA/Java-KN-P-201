@@ -1,6 +1,11 @@
 # Java-KN-P-201
 ------------------------------
 
+![image](https://github.com/YurkevichVA/Java-KN-P-201/assets/67063105/c31808a0-3ee5-401f-a180-aea431313925)
+![image](https://github.com/YurkevichVA/Java-KN-P-201/assets/67063105/09abd6cb-78d4-4307-9ddf-7280e5440166)
+
+------------------------------
+
 ![image](https://github.com/YurkevichVA/Java-KN-P-201/assets/67063105/d6743455-1b8e-4859-b127-4dbc899d8524)
 ![image](https://github.com/YurkevichVA/Java-KN-P-201/assets/67063105/d4ce9680-7e9b-4a3d-8f41-1a33f9c26205)
 
