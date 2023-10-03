@@ -2,6 +2,7 @@ package step.learning;
 
 import com.google.inject.Guice;
 import com.google.inject.Injector;
+import step.learning.async.AsyncDemo;
 import step.learning.basics.BasicsDemo;
 import step.learning.basics.FilesDemo;
 import step.learning.basics.LongestStringTask;
@@ -17,9 +18,10 @@ public class App
         //new FilesDemo().run();
         //new LongestStringTask().run();
         //new OopDemo().run();
-        Injector injector = Guice.createInjector(new ConfigModule());
-        IocDemo iocDemo = injector.getInstance(IocDemo.class); // замість new IocDemo()
-        iocDemo.run() ;
+        //Injector injector = Guice.createInjector(new ConfigModule());
+        //IocDemo iocDemo = injector.getInstance(IocDemo.class); // замість new IocDemo()
+        //iocDemo.run() ;
+        Guice.createInjector(new ConfigModule()).getInstance(AsyncDemo.class).run();
     }
 }
 
